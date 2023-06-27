@@ -1,0 +1,91 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:security/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:import/recommended"
+  ],
+  "env": {
+    "amd": true,
+    "node": true,
+    "es6": true
+  },
+  "overrides": [
+    {
+      "extends": [
+        "plugin:@typescript-eslint/recommended-requiring-type-checking"
+      ],
+      "parserOptions": {
+        "project": "tsconfig.json"
+      },
+      "files": ["*.ts", "*.tsx"],
+      "rules": {
+        "@typescript-eslint/no-misused-promises": 0,
+        "@typescript-eslint/restrict-template-expressions": 1,
+        "@typescript-eslint/restrict-plus-operands": 1,
+        "@typescript-eslint/require-await": 1,
+        "@typescript-eslint/no-unsafe-assignment": 1,
+        "@typescript-eslint/no-unsafe-argument": 1,
+        "@typescript-eslint/no-unsafe-member-access": 1
+      }
+    }
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "script"
+  },
+  "plugins": ["@typescript-eslint", "unicorn", "import"],
+  "settings": {
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
+    },
+    "import/resolver": {
+      "typescript": {
+        "alwaysTryTypes": true
+      }
+    }
+  },
+  "rules": {
+    "no-empty": 0,
+    "no-console": 1,
+    "no-debugger": 2,
+    "no-dupe-args": 1,
+    "no-dupe-class-members": 1,
+    "no-dupe-keys": 1,
+    "no-duplicate-case": 1,
+    "no-duplicate-imports": 1,
+    "no-setter-return": 1,
+    "getter-return": 1,
+    "no-sparse-arrays": 1,
+    "no-template-curly-in-string": 1,
+    "no-unreachable": 1,
+    "no-unreachable-loop": 1,
+    "no-unused-private-class-members": 1,
+    "no-unused-vars": 0,
+    "no-use-before-define": 1,
+    "use-isnan": 1,
+    "eqeqeq": 1,
+    "valid-typeof": 1,
+    "unicorn/new-for-builtins": 1,
+    "unicorn/better-regex": 1,
+    "unicorn/error-message": 1,
+    "unicorn/no-document-cookie": 1,
+    "unicorn/no-empty-file": 1,
+    "unicorn/no-instanceof-array": 1,
+    "unicorn/no-new-buffer": 1,
+    "unicorn/no-unnecessary-await": 1,
+    "unicorn/no-unsafe-regex": 1,
+    "unicorn/no-useless-length-check": 1,
+    "unicorn/no-useless-spread": 1,
+    "unicorn/no-useless-undefined": 1,
+    "unicorn/no-zero-fractions": 1,
+    "unicorn/prefer-optional-catch-binding": 1,
+    "unicorn/throw-new-error": 1,
+    "unicorn/prefer-node-protocol": 1,
+    "@typescript-eslint/no-empty-function": 1,
+    "import/export": 1,
+    "import/no-named-as-default-member": 0,
+    "@typescript-eslint/no-non-null-asserted-optional-chain": 1
+  }
+}

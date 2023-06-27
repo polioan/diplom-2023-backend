@@ -1,0 +1,54 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "nodenext",
+    "noEmit": false,
+    "incremental": true,
+
+    "outDir": "./dist",
+    "baseUrl": "../src",
+
+    "removeComments": true,
+    "sourceMap": false,
+
+    "esModuleInterop": true,
+
+    "resolveJsonModule": true,
+
+    "isolatedModules": false,
+
+    "allowSyntheticDefaultImports": true,
+
+    "skipLibCheck": true,
+
+    "allowJs": true,
+    "checkJs": true,
+
+    "strict": true,
+    "alwaysStrict": true,
+    "forceConsistentCasingInFileNames": true,
+    "useDefineForClassFields": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictPropertyInitialization": true,
+    "strictFunctionTypes": true,
+    "noImplicitThis": true,
+    "strictBindCallApply": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "importsNotUsedAsValues": "error",
+
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+
+    "ignoreDeprecations": "5.0"
+  }
+}

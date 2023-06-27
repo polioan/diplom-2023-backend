@@ -1,0 +1,97 @@
+generator client {
+  provider   = "prisma-client-js"
+  engineType = "binary"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Info {
+  id           Int           @id @default(0)
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+  dateStart    DateTime
+  dateEnd      DateTime
+  address      String
+  city         String
+  latitude     Float
+  longitude    Float
+  scheduleDays ScheduleDay[]
+}
+
+model ScheduleDay {
+  id       String               @id @default(uuid())
+  day      DateTime
+  Info     Info?                @relation(fields: [infoId], references: [id], onDelete: Cascade)
+  infoId   Int?
+  sections ScheduleDaySection[]
+}
+
+model ScheduleDaySection {
+  id            String       @id @default(uuid())
+  time          DateTime
+  name          String
+  ScheduleDay   ScheduleDay? @relation(fields: [scheduleDayId], references: [id], onDelete: Cascade)
+  scheduleDayId String?
+}
+
+model Admin {
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  login     String   @unique
+  password  String
+}
+
+model Feedback {
+  id          Int      @id @default(autoincrement())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  answered    Boolean  @default(false)
+  fingerprint String
+  name        String
+  email       String
+  commandName String?
+  message     String   @db.Text
+}
+
+enum Format {
+  online
+  offline
+}
+
+model Register {
+  id           Int           @id @default(autoincrement())
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+  answered     Boolean       @default(false)
+  fingerprint  String
+  commandName  String
+  format       Format
+  participants Participant[]
+}
+
+enum Specialization {
+  frontend
+  backend
+  devops
+  techlead
+  uxui
+}
+
+model Participant {
+  id             Int            @id @default(autoincrement())
+  firstName      String
+  lastName       String
+  middleName     String?
+  organization   String
+  dateOfBirth    DateTime
+  phoneNumber    String
+  specialization Specialization
+  stack          String         @db.Text
+  email          String
+  Register       Register?      @relation(fields: [registerId], references: [id], onDelete: Cascade)
+  registerId     Int?
+}
